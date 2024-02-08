@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/Fonts/fonts-related/fonts.css">
+  <title>FinalProject</title>
+</head>
+
+<body>
+  <header>
+    <h1>Final Project </h1>
+
+    <img class="pp" src="/Images/mkg.jpeg">
+
+    <h2>
+      Mohamad Ghosson
+    <br>
+      Dr.Ilaf Makki
+    </h2>
+
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showContent('home')">HOME</a></li>
+        <li><a href="#" onclick="showContent('information')">INFORMATION</a></li>
+        <li><a href="#" onclick="showContent('example')">EXAMPLE</a></li>
+        <li><a href="#" onclick="showContent('test')">TEST</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<main>
+    <div id="homeContent">
+      <img class="img1" src="/Images/bag-of-words.png" alt="Image Description">
+      <div class="title-home">⇒ What is natural language processing ?</div>
+
+      • Natural Language Processing (NLP) is a subfield of artificial intelligence (AI) that focuses on the interaction between computers and human languages.
+      <br>
+      • The primary goal of NLP is to enable computers to understand, interpret, and generate human language in a way that is both meaningful and contextually relevant.
+      <br>
+      • NLP involves the application of computational techniques and algorithms to process, analyze, and derive insights from natural language data.
+      <br>
+      <br>
+
+      
+      <div class="mainBriefDiv" style="display: flex;justify-content: space-between;width: 100%;">
+  
+
+      <div class="briefDiv">
+      <div class="title-home">
+       ⇒ Brief overview of Natural Language Processing:</div>
+
+      • Connects spoken and written language with machine understanding.
+      <br>
+      • Powered by chatbots, language translation apps, and virtual assistants.
+      <br>
+      • Enables computers to comprehend human language.
+      <br>
+      • Crucial in information age.
+      <br>
+      <br>
+
+
+      <div class="title-home">
+        ⇒ Importance of text analysis in NLP :</div> 
+
+        • Teaching machines to read, comprehend, and derive meaning from vast text data.
+        <br> 
+        • Powers sentiment analysis of customer reviews and automatic categorization of news articles.
+      </div>
+
+        <div class="img2Div">
+          <img class="img2" src="/Images/Sentiment.png" alt="Image Description">
+        </div> 
+      </div>
+    </div>
+
+    <div id="informationContent" class="hidden">
+
+    
+      <h2>Let us talk about Bag of words now : </h2>
+      <br>
+      <br>
+      <div class="title-information">⇒ What is Bag of words?</div>
+      The Bag of Words (BoW) model is a common and simple technique used in natural language processing (NLP) for representing textual data.<br>
+      It is a way to convert text data into numerical vectors, making it suitable for machine learning algorithms.<br>
+      <br>
+      <br>
+      <div class="title-information">⇒ Steps:</div>
+      <div id="content">
+      • Create a Vocabulary:Collect all unique words from the entire dataset to form the vocabulary.
+      <br>
+      • Vectorization:For each document in the dataset, create a vector by counting the occurrences of each word in the vocabulary within that document.
+      <br>
+      • Sparse Matrix: The resulting vectors are often sparse, as most documents use only a small subset of the entire vocabulary.
+      <br>
+      <br>
+      <br>
+      <div class="title-information">⇒ Limitations:</div> 
+      • Loss of Sequence Information:BoW discards the order and structure of words, which can be crucial in some contexts.
+      <br>
+      • High Dimensionality:The resulting vectors can be high-dimensional, especially for large vocabularies, leading to computational challenges.
+      <br>
+      • Ignoring Word Semantics:BoW treats each word independently and doesn't capture the semantic relationships between words.
+      <br>
+      <br>
+      <br>
+      <div class="title-information">⇒ BoW techniques :</div>
+      • Converts text into manageable pieces for machine processing.
+      <br>
+      • Breaks down sentences and paragraphs into individual words.
+      <br>
+      • Counts word frequency to create a "bag" of words.
+      <br>
+      • Ignores grammar and word order, capturing text essence.
+      <br>
+      • Forms foundation for NLP tasks like sentiment analysis and topic modelling.
+      <br>
+      • Great starting point for NLP beginners.
+    </div>
+      <form>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button type="button" onclick="highlightText()">Search for key words</button>
+     </form>
+      <br>
+      <br>
+    </div>
+
+ 
+  <div id="exampleContent" class="hidden">
+
+  <h2 style="color:blue;"></p>EXAMPLE</h2>
+       
+    
+  <div class="title-example">⇒ Implementation with Python:</div>
+
+    1- Import the libraries: import pandas as pd,import numpy as np,import collections
+    <br>
+    <br>
+    2-Define the variables :
+    <br>
+    • doc1 = 'Game of Thrones is an amazing tv series!'
+    <br>
+    • doc2 = 'Game of Thrones is the best tv series!'
+    <br>
+    • doc3 = 'Game of Thrones is so great'
+    <br>
+    • 3-Remove punctuations & transform the string into a list composed of words:
+    <br>
+    <br>
+    • l_doc1 = re.sub(r"[^a-zA-Z0-9]", " ", doc1.lower()).split()
+    <br>
+    • l_doc2 = re.sub(r"[^a-zA-Z0-9]", " ", doc2.lower()).split()
+    <br>
+    • l_doc3 = re.sub(r"[^a-zA-Z0-9]", " ", doc3.lower()).split()
+    <br>
+    <br>
+    • we define a dictionary with the specified keys, which corresponds to the words of the Vocabulary, and the specified value is 0.
+    <br>
+    • we iterate over the words contained only in the document and we assign to each word its frequency within the review.
+    <br>
+    <br>
+    • def calculateBOW(wordset,l_doc):
+    <br>
+    • tf_diz = dict.fromkeys(wordset,0)
+    <br>
+    • for word in l_doc:
+    <br>
+    • tf_diz[word]=l_doc.count(word)
+    <br>
+    • return tf_diz
+    <br>
+  <br>
+
+  <div class="title-example">⇒ Explore this example to understand the concept better. Examples are great for illustrating practical applications and usage scenarios:</div>
+    • Let's look at an easy example to understand the concepts previously explained.
+    <br>
+    • We could be interested in analysing the reviews about Game of Thrones:
+    <br>
+    <br>
+    • Review 1: Game of Thrones is an amazing tv series!
+    <br>
+    • Review 2: Game of Thrones is the best tv series!
+    <br>
+    • Review 3: Game of Thrones is so great
+    <br>
+    <br>
+    <u>In the table, I show all the calculations to obtain the Bag-Of-Words approach:</u>
+    <br>
+    <img class="img3" src="/Images/table1.png" alt="Image Description"><br>
+    <u>Each row corresponds to a different review, while the rows are the unique words, contained in the three documents.</u>
+    <br>
+  <br>
+
+  <div class="title-example">Finally:</div>
+    We obtain the Bag-of-Words representations for the reviews. In the end, we obtain a data frame :
+    <br>
+    <br>
+    • bow1 = calculateBOW(wordset,l_doc1)
+    <br>
+    • bow2 = calculateBOW(wordset,l_doc2)
+    <br>
+    • bow3 = calculateBOW(wordset,l_doc3)
+    <br>
+    • df_bow = pd.DataFrame([bow1,bow2,bow3])
+    <br>
+    • df_bow.head()
+    <br>
+    <br>
+    <div class="title-example">⇒ Results:</div>
+    <img class="img4" src="/Images/table 2.png" alt="Image Description">
+    <br>
+
+    <div class="title-example">⇒ Comparison with Scikit-Learn :</div>
+    • We want to compare the results obtaining, applying the Scikit-learn's CountVectorizer.
+    <br>
+    • First, we instantiate a CountVectorizer object and later we learn the term frequency of each word within the document. In the end, we return the document-term matrix.
+    <br>
+    • from sklearn.feature_extraction.text import CountVectorizer
+    <br>
+    • vectorizer = CountVectorizer()
+    <br>
+    • print(vectorizer.get_feature_names())
+    <br>
+    • CountVectorizer provides the get_features_name method, which contains the uniques words of the vocabulary, taken into account later to create the desired document-term matrix X. To have an easier visualization, we transform it into a pandas data frame.
+    <br>
+    • X = vectorizer.fit_transform([doc1,doc2,doc3])
+    <br>
+    • df_bow_sklearn = pd.DataFrame(X.toarray(),columns=vectorizer.get_feature_names())
+    <br>
+    df_bow_sklearn.head()
+    <br>
+
+    <div class="title-example">⇒ Results:</div>
+    <img class="img5" src="/Images/table 3.png" alt="Image Description"></p>
+    We only need to add an argument in the CountVectorizer function to remove the stop words without adding any line of code in Sklearn:
+    <br>
+    • From sklearn.feature_extraction.text import CountVectorizer
+    <br>
+    • vectorizer = CountVectorizer(stop_words='english')
+    <br>
+    • X = vectorizer.fit_transform([doc1,doc2,doc3])
+    <br>
+    • df_bow_sklearn = pd.DataFrame(X.toarray(),columns=vectorizer.get_feature_names())
+    <br>
+    • df_bow_sklearn.head()
+    <br>
+  <br>
+
+
+  <div class="title-example">⇒ Explanation:</div>
+    1.  Importing the CountVectorizer class from scikit-learn.
+    <br>
+    2.  Creating an instance of the CountVectorizer with English stop words removed.
+    <br>
+    3.Transforming the input documents (doc1, doc2, and doc3) into a matrix of token counts using the fit_transform method.
+    <br>
+    4.Creating a Pandas DataFrame from the sparse matrix X, with column names as feature names obtained from vectorizer.get_feature_names()
+  <br>
+  <br>
+
+ 
+  <div class="title-example">⇒ Results:</div>
+  <img class="img6" src="/Images/table 4.png" alt="Image Description">
+
+  
+  <div class="test-container">
+    <button class="button" onclick="alert('If you need any assistance contact me on: 03152914')">Help</button></div>
+  </div>
+
+  <div id="testContent" class="hidden">
+      <h3>Test your knowledge :</h3>
+      <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="q1">What is natural language processing ?</td>
+                <td id="a1"></td>
+            </tr>
+            <tr>
+                <td id="q2"> What is Bag of words?</td>
+                <td id="a2"></td>
+            </tr>
+            <tr>
+                <td id="q3"> 2 BoW techniques ?</td>
+                <td id="a3"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <div class="test-container">
+    <button class="button" onclick="showAnswer('a1', 'Natural Language Processing (NLP) is a subfield of artificial intelligence (AI) that focuses on the interaction between computers and human languages.')">Show Answer Question 1</button>
+    <button class="button" onclick="showAnswer('a2', 'It is a way to convert text data into numerical vectors, making it suitable for machine learning algorithms.')">Show Answer Question 2</button>
+    <button class="button" onclick="showAnswer('a3', 'Converts text into manageable pieces for machine processing and it breaks down sentences and paragraphs into individual words.​')"> ShowAnswer Question 3</button><br>
+    </div>
+    <div class="img7">
+        <img src="/Images/wishes.jpg">
+    </div>
+
+    <script src="/JS/script.js"></script>
+  </main>
+</body>
+</html>
